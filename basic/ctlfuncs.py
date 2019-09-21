@@ -9,12 +9,20 @@ def trange():
     for i in range(2, 10):
         for j in range(2,i):
             if i % j == 0:
-                print(j, 'equals', j, '*', i/j)
+                print(i, 'equals', j, '*', i//j)
                 break
-    else:
-        print(i, 'is prime number')
+        else:
+            print(i, 'is prime number')
+
+    # specify increment for range
+    for i in range(-10, -1, 3):
+        if i % 2 == 0:
+            print(i, "is even number")
+            continue
+        print(i, "is odd number")
 
 def tfor():
+    print("demo for loop usage")
     words = ["test", "for", "loop", "example"]
     for w in words:
         if w == "example":
@@ -27,6 +35,12 @@ def tfor():
         if words[i] == "example":
             words[i] = "examples"
             words.insert(i, "which")
+    print(words)
+
+    # another way to modify list is to iterate over slice
+    for w in words[:]:
+        if len(w) == 5:
+            words.insert(0, w)
     print(words)
 
 def mystery():
@@ -87,9 +101,47 @@ def tvarparams():
            client="John Cleese",
            sketch="Cheese Shop Sketch")
 
+def tfib():
+    print("testing fibonacci series")
+    print(fib(10))
+
+def fib(n):
+    """reurns fibonacci series up to n"""
+    a, b = 0, 1
+    result = []
+    while a < n:
+        result.append(a)
+        a, b = b, a+b
+    return result
+
+def dictparas(kind='knative', paas='k8s', bigdata='cdh', machinelearning='r'):
+    print("demo unpacking argument list with **")
+    print(paas, kind)
+
+def unpackargs():
+    print("demo unpacking argument lists")
+    args = [3, 6]
+    print(list(range(*args)))
+    parad = {"kind":"knative", "paas":"mesos","bigdata":"hadoop","machinelearning":"anaconda"}
+    dictparas(**parad)
+
+def tlambda():
+    print("demo lambda usage")
+    f = calcu(2,4)
+    print(f(1))
+    
+    f1 = calcu(5, 6)
+    print(f1(2))
+
+def calcu(a, b):
+    return lambda x : x + a*b
+
 if __name__ == "__main__":
     trange()
     tfor()
+    tfib()
     task()
     tdefval()
     tvarparams()
+    unpackargs()
+    tlambda()

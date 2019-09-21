@@ -1,4 +1,4 @@
-# code for basic operations
+# code for basic arithmetic
 import sys
 
 """
@@ -11,8 +11,12 @@ def arithmetic(tname):
                Please specify test name to run arithmetic
         """)
         return
+    print(tname)
+    basic_op()
+    com_op()
 
-    print("start to run code for", tname)
+def basic_op():
+    print ("basic arithmetic operations")
     val1 = 2 + 2
     val2 = 2 * 2
     val3 = val1 * val2
@@ -24,7 +28,13 @@ def arithmetic(tname):
     print("val3 =", val3, ", val4 =", val4)
     val5 = val3 ** 5
     print("power calculation for", val3, "** 5 is", val5)
+
+# TODO: add example for rational and complext
+def com_op():
+    print ("rational and complex operations")
+    pass
+    
     
 if __name__ == "__main__":
     arithmetic(None)
-    arithmetic("self testing")
+    arithmetic("demo arithmetic operations")
